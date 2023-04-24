@@ -72,7 +72,7 @@ public class Ex01_Oracle_Connection {
 	
 	public static void main(String[] args) throws Exception {
 		//DB연결 -> 명령생성(CRUD) -> 실행 -> 처리 -> 자원해제
-		Class.forName("oracle.jdbc.OracleDriver"); // new 와 같은 효과
+		Class.forName("oracle.jdbc.OracleDriver"); // new 와 같은 효과   <- (생략 가능 자동로딩 ..)
 		System.out.println("드라이버 로딩 .....");
 		
 		//loading 된 드라이버를 통해서 Oracle 서버 연결
@@ -110,5 +110,6 @@ public class Ex01_Oracle_Connection {
 		rs.close();
 		conn.close();
 		System.out.println("DB 연결 끊김 : " + conn.isClosed());
+		
 	}
 }
