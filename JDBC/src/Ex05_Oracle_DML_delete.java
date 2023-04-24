@@ -58,7 +58,7 @@ JDBC 작업
   
   
  */
-public class Ex03_Oracle_DML_insert {
+public class Ex05_Oracle_DML_delete {
 
 	public static void main(String[] args) {
 		
@@ -72,26 +72,17 @@ public class Ex03_Oracle_DML_insert {
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","KOSA","1004");
 			stmt = conn.createStatement();
 			
-			//INSERT
-			int empno=0;
-			String ename=null;
+			//Update
 			int deptno = 0;
 			
 			Scanner sc = new Scanner(System.in);
-			System.out.println("사번입력");
-			empno = Integer.parseInt(sc.nextLine());
-			
-			System.out.println("이름입력");
-			ename = sc.nextLine();
 			
 			System.out.println("부서입력");
 			deptno = Integer.parseInt(sc.nextLine());
 			
-			// insert into dmlemp(empno,ename,deptno) values(100,'홍길동',10)
+			// delete from dmlemp where deptno=10 
 			//전통적이고 고전적인 방법
-			String sql = "insert into dmlemp(empno,ename,deptno) ";
-					sql+= "values(" + empno + ",'" +ename + "'," + deptno + ")";
-			// 이 방법이 오랜기간동안 사용됨.
+			String sql = "delete from dmlemp where deptno="+ deptno;
 			System.out.println(sql);
 			
 			//현재 values(?,?,?)  / ? 한개가 parameter 한개를 뜻함
@@ -99,7 +90,6 @@ public class Ex03_Oracle_DML_insert {
 			
 			
 			int resultrow = stmt.executeUpdate(sql);
-			
 			
 			//resultrow > 0   << 반영되는 행이 존재한다
 			if(resultrow > 0) {
