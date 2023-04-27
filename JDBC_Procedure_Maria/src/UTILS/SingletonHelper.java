@@ -1,4 +1,4 @@
-package kr.or.kosa.utils;
+package UTILS;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,7 +21,7 @@ public class SingletonHelper {
 				if (dsn.equals("oracle")) {
 					conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "KOSA", "1004");
 				} else if (dsn.equals("mariadb")) {
-					conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/kosadb", "kosa", "1004");
+					conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/dongdb", "super", "1004");
 				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
@@ -37,7 +37,7 @@ public class SingletonHelper {
 		   		if(dsn.equals("oracle")) {
 		   			conn =	DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe",id,pwd);
 		   		}else if(dsn.equals("mariadb")) {
-		   			conn= DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/kosadb",id,pwd);
+		   			conn= DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/dongdb",id,pwd);
 		   		}
 	   		} catch (Exception e) {
 	   			System.out.println(e.getMessage());

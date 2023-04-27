@@ -6,10 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class SingletonHelper {
+public class SingletonHelper2 {
 	
 	private static Connection conn = null;
-	private SingletonHelper() {}
+	private SingletonHelper2() {}
 	
 	public static Connection getConnection(String dsn) {
 		
@@ -21,7 +21,7 @@ public class SingletonHelper {
 				if (dsn.equals("oracle")) {
 					conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "KOSA", "1004");
 				} else if (dsn.equals("mariadb")) {
-					conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/kosadb", "kosa", "1004");
+					conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/dongdb", "root", "1004");
 				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
@@ -37,7 +37,7 @@ public class SingletonHelper {
 		   		if(dsn.equals("oracle")) {
 		   			conn =	DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe",id,pwd);
 		   		}else if(dsn.equals("mariadb")) {
-		   			conn= DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/kosadb",id,pwd);
+		   			conn= DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/dongdb",id,pwd);
 		   		}
 	   		} catch (Exception e) {
 	   			System.out.println(e.getMessage());
