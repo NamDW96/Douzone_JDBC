@@ -1,13 +1,14 @@
 package DTO;
 
+import java.sql.Date;
+
 import lombok.Data;
-import oracle.sql.DATE;
 
 @Data
 public class Emp_Attend {
 	private int attnum;
 	private int empno;
-	private DATE attend_date;
-	private DATE attend_stime;
-	private DATE attend_etime;
+	private Date attend_date;
+	private Date attend_stime;
+	private Date attend_etime;
 }
