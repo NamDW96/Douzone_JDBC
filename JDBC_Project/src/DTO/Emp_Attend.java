@@ -6,9 +6,8 @@ import lombok.Data;
 
 @Data
 public class Emp_Attend {
-	private int attnum;
-	private int empno;
-	private Date attend_date;
-	private Date attend_stime;
-	private Date attend_etime;
+	private String empno;
+	private String attend_date;
+	private String attend_stime;
+	private String attend_etime;
 }

@@ -1,18 +1,17 @@
 package DTO;
 
-import java.sql.Date;
-
 import lombok.Data;
 
 @Data
 public class D_Emp {
-	private int empno;
+	private String empno;
 	private String ename;
-	private Date birth;
-	private Date hiredate;
+	private String birth;
+	private String hiredate;
 	private String emp_rank;
 	private int sal;
+	private String password;
 	private int deptno;
-	private int mgr;
+	private String mgr;
 	
 }

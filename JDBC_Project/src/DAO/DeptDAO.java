@@ -15,7 +15,7 @@ import UTILS.DBdisConnection;
 public class DeptDAO {
 
 	public void getDeptAllList(){
-		List<D_Dept> deptlist = new ArrayList();
+		List<D_Dept> deptlist = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -40,7 +40,7 @@ public class DeptDAO {
 			DBdisConnection.close(pstmt);
 		}			
 
-		if (deptlist == null) {
+		if (deptlist.size()==0) {
 			System.out.println("데이터가 존재하지 않습니다!");
 		} else {
 			for (D_Dept data : deptlist) {
@@ -60,10 +60,9 @@ public class DeptDAO {
 		try {
 			conn = DBConnection.getConnection();
 			String sql = "select deptno, dname, loc from d_dept where deptno=?";
-			System.out.println("조회할 테이블의 사번을 입력하세요");
+			System.out.println("조회할 테이블의 부서번호를 입력하세요");
 			Scanner sc = new Scanner(System.in);
-
-			
+		
 			int deptno = Integer.parseInt(sc.nextLine());
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, deptno);
@@ -81,12 +80,7 @@ public class DeptDAO {
 			DBdisConnection.close(rs);
 			DBdisConnection.close(pstmt);
 		}
-		if(dept != null) {
 			System.out.println(dept.toString());
-		}else  {
-			System.out.println("데이터를 조회하지 못했습니다. 다시 시도해라.");
-		}
-
 	}
 
 	
@@ -113,7 +107,7 @@ public class DeptDAO {
 			pstmt.setString(2, dname);
 			pstmt.setString(3, loc);
 			rowcount = pstmt.executeUpdate();
-			
+			System.out.println("업데이트 : " + rowcount);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {

@@ -1,4 +1,4 @@
-package Run;
+package Test;
 
 import java.util.List;
 import java.util.Scanner;
@@ -6,15 +6,18 @@ import java.util.Scanner;
 import DAO.DeptDAO;
 import DTO.D_Dept;
 
-public class Run {
+public class Test1 {
 	public static void main(String[] args) {
 		DeptDAO ddao = new DeptDAO();
 
 		Scanner sc = new Scanner(System.in);
 		int num = 0;
 		do {
-
-			System.out.println("1. 전체조회 2. 조건조회 3. 삽입 4. 삭제 5. 수정 ");
+			System.out.println("");
+			System.out.println("===============부서관리메뉴입니다============ ");
+			System.out.println("1. 전체조회 2. 조건조회 3. 삽입 4. 삭제 5. 수정  ");
+			System.out.println("======================================== ");
+			System.out.printf("사용자 입력 >> ");
 			num = sc.nextInt();
 			
 			switch (num) {
@@ -34,8 +37,6 @@ public class Run {
 				ddao.updateDept();
 				break;
 			}
-
 		} while (num != 9);
-
 	}
 }
